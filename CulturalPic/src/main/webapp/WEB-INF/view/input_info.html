@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>民国人物</title>
+    <link href="Resources/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Resources/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="Resources/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="Resources/css/input_info.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!--主内容区-----start----->
+<div class = "container" style="margin-left: 4%;">
+    <!--选择区-----start----->
+    <div>
+        <ul>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Base</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Name Type</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Address Category</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Institute</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Diploma</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Social Relation</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Occupation</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Political Status</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Activity</a>
+            </li>
+            <li>
+                <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                <a class="btn btn-default btn-sm">Writing</a>
+            </li>
+        </ul>
+    </div>
+    <!--选择区-----end----->
+
+    <!--基本信息-----start----->
+    <div class="option" style="display: block;">
+        <div class = "Base">
+            <form>
+                <h2>基本信息</h2>
+                <div class="input-group col-xs-7">
+                    <span class="input-group-addon">姓名</span>
+                    <input type="text" id="full_name" class="form-control" placeholder="请输入中文姓名全称" style="width: 30%;"/>
+                </div>
+                <div class="input-group col-xs-4">
+                    <span class="input-group-addon">姓</span>
+                    <input type="text" id="first_name" class="form-control" />
+                    <span class="input-group-addon">拼音</span>
+                    <input type="text" id="first_pinyin" class="form-control" />
+                </div>
+                <div class="input-group col-xs-4">
+                    <span class="input-group-addon">名</span>
+                    <input type="text" id="second_name" class="form-control" />
+                    <span class="input-group-addon">拼音</span>
+                    <input type="text" id="second_pinyin" class="form-control" />
+                </div>
+                <h4>姓名（含拼音）:</h4><h4 id = "name_pinyin"></h4>
+                <div class="input-group col-xs-2">
+                    <span class="input-group-addon">Sex</span>
+                    <select id = "sex" class="form-control" >
+                    <option value = "-1">请选择</option>
+                    <option value = "0">Female</option>
+                    <option value = "1">Male</option>
+                    </select>
+                </div>
+                <div class="input-group col-xs-8">
+                    <span class="input-group-addon">Birth year</span>
+                    <input type="text" id = "birth_date" class="form-control" />
+                    <span class="input-group-addon">帝王或民国纪年</span>
+                    <input type="text" id = "birth_minguo" class="form-control" />
+                </div>
+                <div class="input-group col-xs-8">
+                    <span class="input-group-addon">Death Year</span>
+                    <input type="text" id = "death_date" class="form-control" />
+                    <span class="input-group-addon">帝王或民国纪年</span>
+                    <input type="text" id = "death_minguo" class="form-control" />
+                </div>
+                <div class="input-group col-xs-3">
+                    <span class="input-group-addon">Ethnicity Category(民族)</span>
+                    <input type="text" id = "nation" class="form-control" />
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-default" id = "base_submit" type="button">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--基本信息-----end----->
+
+    <!--名称信息-----start----->
+    <div class="option">
+        <div class = "Name Type">
+            <h2>名称信息</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">名称类别</span>
+                <select class="form-control" id = "name_type" >
+                    <option value = "-1">请选择</option>
+                    <option value = "0">字</option>
+                    <option value = "1">号</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#name__type"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">名称</span>
+                <input type="text" class="form-control" id = "alias"/>
+                <span class="input-group-btn">
+                    <button id = "add_alias" class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class = "table-info table-nameType">
+            <table class="table table-hover table-bordered" style="width: 70%;">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>类别</td>
+                        <td>名称</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody class = "tb-nameType">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--名称信息-----end----->
+
+    <!--地点信息-----start----->
+    <div class="option">
+        <div class = "Address Category">
+            <h2>地点信息</h2>
+            <div class="input-group col-xs-2">
+                <span class="input-group-addon">地点类别</span>
+                <select class="form-control"  id = "address_category">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">出生地</option>
+                    <option value = "1">工作地</option>
+                    <option value = "2">去世地</option>
+                    <option value = "3">祖籍</option>
+                </select>
+            </div>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">地点</span>
+                <input type="text" id = "address" class="form-control" />
+                <span class="input-group-btn">
+                    <button id = "add_address" class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class = "table-info table-addressCategory">
+            <table class="table table-hover table-bordered" style="width: 70%;">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>类别</td>
+                    <td>地点</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-addressCategory">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--地点信息-----end----->
+
+    <!--学校信息-----start----->
+    <div class="option">
+        <div class = "Institute">
+            <h2>学校信息</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">Education Category</span>
+                <select class="form-control" id = "edu_category_school">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">Classicial</option>
+                    <option value = "1">Western</option>
+                    <option value = "2">Overseas</option>
+                </select>
+            </div>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">学校类别</span>
+                <select class="form-control" id = "school_type">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">Primary School</option>
+                    <option value = "1">Middle School</option>
+                    <option value = "2">University</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" id = "add_school_type" type="button" data-toggle="modal" data-target="#school__type"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">学校</span>
+                <input type="text" class="form-control" id = "school"/>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">开始时间</span>
+                <input type="text" class="form-control" id = "start_date_school"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">结束时间</span>
+                <input type="text" class="form-control" id = "end_date_school"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">地点</span>
+                <input type="text" class="form-control" id = "school_address"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" id = "add_school_address" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-2">
+                <button class="btn btn-default col-xs-5" id = "add_school" type="button">添加</button>
+            </div>
+        </div>
+        <div class = "table-info table-school">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>教育类别</td>
+                    <td>学校类别</td>
+                    <td>学校名称</td>
+                    <td>开始时间</td>
+                    <td>结束时间</td>
+                    <td>地点</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-school">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--学校信息-----end----->
+
+    <!--学历信息-----start----->
+    <div class="option">
+        <div class = "Diploma">
+            <h2>学历信息</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">Education Category</span>
+                <select class="form-control" id = "edu_category_diploma">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">Classicial</option>
+                    <option value = "1">Western</option>
+                    <option value = "2">Overseas</option>
+                </select>
+            </div>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">学历类别</span>
+                <select class="form-control" id = "diploma_type">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">学士</option>
+                    <option value = "1">硕士</option>
+                    <option value = "2">博士</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" id = "add_diploma_type" type="button" data-toggle="modal" data-target="#diploma__type"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">学历</span>
+                <input type="text" class="form-control" id = "diploma"/>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">开始时间</span>
+                <input type="text" class="form-control" id = "start_date_diploma" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">结束时间</span>
+                <input type="text" class="form-control" id = "end_date_diploma" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">地点</span>
+                <input type="text" class="form-control" id = "diploma_address" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-2">
+                <button class="btn btn-default col-xs-5" id = "add_diploma" type="button">添加</button>
+            </div>
+        </div>
+
+        <div class = "table-info table-diploma">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>教育类别</td>
+                    <td>学历类别</td>
+                    <td>学历名称</td>
+                    <td>开始时间</td>
+                    <td>结束时间</td>
+                    <td>地点</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-diploma">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--学历信息-----end----->
+
+    <!--社会关系-----start----->
+    <div class="option">
+        <div class = "Social Relation">
+            <h2>社会关系</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">关系类别</span>
+                <select class="form-control" id = "ship_category">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">Kinship</option>
+                    <option value = "1">Non-kinship</option>
+                </select>
+            </div>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">具体关系</span>
+                <select class="form-control" id = "ship_type" >
+                    <option>请选择</option>
+                    <option>配偶</option>
+                    <option>父母</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" id = "add_ship_type" type="button" data-toggle="modal" data-target="#ship__type"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">关系人名称</span>
+                <input type="text" class="form-control" id = "ship" />
+                <span class="input-group-btn">
+                    <button id = "add_ship" class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class = "table-info table-ship">
+            <table class="table table-hover table-bordered" style="width: 70%;">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>关系类别</td>
+                    <td>具体关系</td>
+                    <td>关系人名称</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-ship">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--社会关系-----end----->
+
+    <!--职业-----start----->
+    <div class="option">
+        <div class = "Occupation">
+            <h2>职业</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">状态类别</span>
+                <select class="form-control" id = "status_category">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">Professional</option>
+                    <option value = "1">Social</option>
+                    <option value = "2">Political</option>
+                </select>
+            </div>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">机构名称</span>
+                <select class="form-control" id = "institute">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">学校</option>
+                    <option value = "1">政府</option>
+                    <option value = "2">学会</option>
+                </select>
+                <span class="input-group-btn">
+                    <button id = "add_institute" class="btn btn-default" type="button" data-toggle="modal" data-target="#new_institute"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">职业名称</span>
+                <select class="form-control" id = "occupation">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">老师</option>
+                    <option value = "1">公务员</option>
+                    <option value = "2">工人</option>
+                </select>
+                <span class="input-group-btn">
+                    <button id = "add_occupation" class="btn btn-default" type="button" data-toggle="modal" data-target="#new_occupation"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">职业名称</span>
+                <input type="text" class="form-control" id = "occupation_name"/>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">开始时间</span>
+                <input type="text" class="form-control" id = "start_date_occupation"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">结束时间</span>
+                <input type="text" class="form-control" id = "end_date_occupation"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">地点</span>
+                <input type="text" class="form-control" id = "occupation_address"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-2">
+                <button id = "add_occupation_name" class="btn btn-default col-xs-5" type="button">添加</button>
+            </div>
+        </div>
+
+        <div class = "table-info table-occupation">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>状态类别</td>
+                    <td>机构名称</td>
+                    <td>职业名称</td>
+                    <td>具体职业</td>
+                    <td>开始时间</td>
+                    <td>结束时间</td>
+                    <td>地点</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-occupation">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--职业-----end----->
+
+    <!--政治状态-----start----->
+    <div class="option">
+        <div class = "Political Status">
+            <h2>政治状态</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">政党类别</span>
+                <select class="form-control" id = "polity_type">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">共产党</option>
+                    <option value = "1">国民党</option>
+                    <option value = "2">民进党</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#polity__type"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">政党名称</span>
+                <input type="text" class="form-control" id = "polity"/>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">开始时间</span>
+                <input type="text" class="form-control" id = "start_date_polity"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">结束时间</span>
+                <input type="text" class="form-control" id = "end_date_polity"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">地点</span>
+                <input type="text" class="form-control" id = "polity_address"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-2">
+                <button id = "add_polity" class="btn btn-default col-xs-5" type="button">添加</button>
+            </div>
+        </div>
+
+        <div class = "table-info table-polity">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>政党类别</td>
+                    <td>政党名称</td>
+                    <td>开始时间</td>
+                    <td>结束时间</td>
+                    <td>地点</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-polity">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--政治状态-----end----->
+
+    <!--活动-----start----->
+    <div class="option">
+        <div class = "Activity">
+            <h2>活动</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">活动类别</span>
+                <select class="form-control" id = "activity_type">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">教育</option>
+                    <option value = "1">政治</option>
+                    <option value = "2">社会</option>
+                </select>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">具体信息</span>
+                <input type="text" class="form-control" id = "activity"/>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">开始时间</span>
+                <input type="text" class="form-control" id = "start_date_activity"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">结束时间</span>
+                <input type="text" class="form-control" id = "end_date_activity"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">地点</span>
+                <input type="text" class="form-control" id = "activity_address"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-2">
+                <button id = "add_activity" class="btn btn-default col-xs-5" type="button">添加</button>
+            </div>
+        </div>
+
+        <div class = "table-info table-activity">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>活动类别</td>
+                    <td>具体信息</td>
+                    <td>开始时间</td>
+                    <td>结束时间</td>
+                    <td>地点</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-activity">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--活动-----end----->
+
+    <!--著作-----start----->
+    <div class="option">
+        <div class = "Writing">
+            <h2>著作</h2>
+            <div class="input-group col-xs-3">
+                <span class="input-group-addon">著作类别</span>
+                <select class="form-control" id = "writing_type">
+                    <option value = "-1">请选择</option>
+                    <option value = "0">翻译</option>
+                    <option value = "1">演讲</option>
+                    <option value = "2">小说</option>
+                </select>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#writing__type"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+            <div class="input-group col-xs-4">
+                <span class="input-group-addon">著作名称</span>
+                <input type="text" class="form-control" id = "writing"/>
+                <span class="input-group-btn">
+                    <button id = "add_writing" class="btn btn-default" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class = "table-info table-writing">
+            <table class="table table-hover table-bordered" style="width: 70%;">
+                <thead>
+                <tr>
+                    <td>#</td>
+                    <td>著作类别</td>
+                    <td>著作名称</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody class = "tb-writing">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--著作-----end----->
+</div>
+<!--主内容区-----end----->
+
+<!--弹框区-----start----->
+<div>
+    <!--名称类别弹框-----start----->
+    <div id = "name__type" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>名称类别</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "nameType" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_nameType" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--名称类别弹框-----end----->
+
+    <!--学校类别弹框-----start----->
+    <div id = "school__type" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>学校类别</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">教育类别</span>
+                    <select class="form-control" id = "eduCategory_school">
+                        <option value = "-1">请选择</option>
+                        <option value = "0">Classicial</option>
+                        <option value = "1">Western</option>
+                        <option value = "2">Overseas</option>
+                    </select>
+                </div>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "schoolType" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_schoolType" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--学校类别弹框-----end----->
+
+    <!--学历类别弹框-----start----->
+    <div id = "diploma__type" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>学历类别</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">教育类别</span>
+                    <select class="form-control" id = "eduCategory_diploma">
+                        <option value = "-1">请选择</option>
+                        <option value = "0">Classicial</option>
+                        <option value = "1">Western</option>
+                        <option value = "2">Overseas</option>
+                    </select>
+                </div>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "diplomaType" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_diplomaType" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--学历类别弹框-----end----->
+
+    <!--关系类别弹框-----start----->
+    <div id = "ship__type" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>关系类别</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">关系类别</span>
+                    <select class="form-control" id = "shipCategory">
+                        <option value = "-1">请选择</option>
+                        <option value = "0">Kinship</option>
+                        <option value = "1">Non-kinship</option>
+                    </select>
+                </div>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "shipType" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_shipType" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--关系类别弹框-----end----->
+
+    <!--机构弹框-----start----->
+    <div id = "new_institute" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>机构</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">状态类别</span>
+                    <select class="form-control" id = "statusCategory_institute">
+                        <option value = "-1">请选择</option>
+                        <option value = "0">Professional</option>
+                        <option value = "1">Social</option>
+                        <option value = "2">Political</option>
+                    </select>
+                </div>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "instituteName" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_instituteName" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--机构弹框-----end----->
+
+    <!--职业弹框-----start----->
+    <div id = "new_occupation" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>职业</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">状态类别</span>
+                    <select class="form-control" id = "statusCategory_occupation">
+                        <option value = "-1">请选择</option>
+                        <option value = "0">Professional</option>
+                        <option value = "1">Social</option>
+                        <option value = "2">Political</option>
+                    </select>
+                </div>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">机构名称</span>
+                    <select class="form-control" id = "instituteName_occupation">
+                        <option value = "-1">请选择</option>
+                        <option value = "0">学校</option>
+                        <option value = "1">政府</option>
+                        <option value = "2">学会</option>
+                    </select>
+                </div>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "occupationName" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_occupationName" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--职业弹框-----end----->
+
+    <!--政党弹框-----start----->
+    <div id = "polity__type" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>政党</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "polityType" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_polityType" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--政党弹框-----end----->
+
+    <!--著作弹框-----start----->
+    <div id = "writing__type" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <h2>著作</h2>
+                <div class="input-group col-xs-8" style="margin-left: 16%;">
+                    <span class="input-group-addon">名称</span>
+                    <input type="text" id = "writingType" class="form-control" />
+                </div>
+                <div class="input-group col-xs-5" style="margin-left: 41%;">
+                    <button id = "add_writingType" class="btn btn-default col-xs-5" type="button">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--著作弹框-----end----->
+
+</div>
+<!--弹框区-----end----->
+
+<!--js文件引入区-----start----->
+<script src="Resources/js/jquery.js"></script>
+<script src="Resources/js/bootstrap.min.js"></script>
+<script src="Resources/js/input_info.js"></script>
+<script src="Resources/js/name_type.js"></script>
+<script src="Resources/js/address_category.js"></script>
+<script src="Resources/js/school_type.js"></script>
+<script src="Resources/js/diploma.js"></script>
+<script src="Resources/js/relation.js"></script>
+<script src="Resources/js/occupation.js"></script>
+<script src="Resources/js/polity.js"></script>
+<script src="Resources/js/activity.js"></script>
+<script src="Resources/js/writing.js"></script>
+<!--js文件引入区-----end----->
+</body>
+</html>

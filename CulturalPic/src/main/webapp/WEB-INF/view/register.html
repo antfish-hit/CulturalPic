@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>民国人物</title>
+    <link href="Resources/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Resources/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="Resources/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="Resources/css/register.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <!--主内容区-----start----->
+    <div class = "container" style="margin-left: 4%;">
+            <div>
+                <h2>注册</h2>
+                <hr/>
+                <div class="input-group col-xs-3">
+                    <span class="input-group-addon">电子邮箱</span>
+                    <input type="text" class="form-control" placeholder="请输入电子邮箱" id = "email" data-toggle="popover"/>
+                </div>
+                <div class="input-group col-xs-3">
+                    <span class="input-group-addon">密码</span>
+                    <input type="password" class="form-control" placeholder="请输入密码" id = "password" data-toggle="popover"/>
+                </div>
+                <div class="input-group col-xs-3">
+                    <span class="input-group-addon">确认密码</span>
+                    <input type="password" class="form-control" placeholder="请确认密码" id = "re_pwd" data-toggle="popover"/>
+                </div>
+                <div>
+                    <div class="input-group col-xs-2 code">
+                        <span class="input-group-addon">验证码</span>
+                        <input type="text" class="form-control" id = "code"/>
+                    </div>
+                    <canvas id = "code_img"></canvas>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-default" id = "register" type="button">注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Resources/js/require.js" defer async="true"></script>
+    <script src = "Resources/js/require.js" data-main = "Resources/js/user_main"></script>
+</body>
+</html>

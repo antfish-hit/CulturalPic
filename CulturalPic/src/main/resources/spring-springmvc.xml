@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    	 http://www.springframework.org/schema/beans/spring-beans.xsd
+     	 http://www.springframework.org/schema/context
+       	 http://www.springframework.org/schema/context/spring-context.xsd
+       	 http://www.springframework.org/schema/aop
+       	 http://www.springframework.org/schema/aop/spring-aop.xsd
+       	 http://www.springframework.org/schema/tx
+   	 	 http://www.springframework.org/schema/tx/spring-tx.xsd
+   	     http://www.springframework.org/schema/mvc
+         http://www.springframework.org/schema/mvc/spring-mvc.xsd
+         http://www.springframework.org/schema/task
+         http://www.springframework.org/schema/task/spring-task.xsd">
+	
+	<!-- 开启扫描 -->
+	<context:component-scan base-package="com.test.controller">
+	</context:component-scan>
+	<!-- 配置注解驱动 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<!-- 静态资源(js、image等)访问 -->
+	<mvc:default-servlet-handler />
+	<!-- 配置视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- jsp 路径前缀 -->
+		
+		<property name="prefix" value="/WEB-INF/view/" />
+		
+		<!-- jsp 路径后缀 -->
+		<property name="suffix" value=".html"></property>
+	</bean>
+	<!-- 任务机制，定时获取Token -->
+	<!-- <task:annotation-driven scheduler="DowScheduler" mode="proxy"/> 
+    <task:scheduler id="DowScheduler" pool-size="10"/>  
+    
+    <bean id="SendSDFCScheduler" class="com.dowloyalty.controller.SendToSaleForceController"/>
+    <task:scheduled-tasks>
+     <task:scheduled ref="SendSDFCScheduler" method="sendSaleRecordJson" cron="0 0 1 * * *"/>
+    </task:scheduled-tasks> -->
+    
+        <!-- <mvc:interceptors>  
+            <mvc:interceptor>  
+                <mvc:mapping path="/*"/>映射路径后缀名  
+                <mvc:mapping path="/**"/>映射路径后缀名  
+				<mvc:exclude-mapping path="/"/> 
+				<mvc:exclude-mapping path="/*.html"/> 
+				<mvc:exclude-mapping path="/*.txt"/> 
+				<mvc:exclude-mapping path="/Resources/**"/> 
+				<mvc:exclude-mapping path="/Resources/**/**"/> 
+				<mvc:exclude-mapping path="/Resources/**/**/**"/> 
+				<mvc:exclude-mapping path="/WeChat/Han*"/> 
+				<mvc:exclude-mapping path="/WeChat/Login*"/> 
+				<mvc:exclude-mapping path="/WeChat/SignUp*"/> 
+				<mvc:exclude-mapping path="/WeChat/Farmer*"/>
+				<mvc:exclude-mapping path="/WeChat/farmer/code*"/>
+				<mvc:exclude-mapping path="/WeChatRe*"/> 
+				<mvc:exclude-mapping path="/Login*"/> 
+			
+                <bean class="com.dowloyalty.controller.AuthorityInterceptor"/>自定义拦截器  
+            </mvc:interceptor>
+        </mvc:interceptors> -->
+	<!-- 配置文件解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>   
+        <property name="maxUploadSize" value="10485760000"></property>  
+        <property name="maxInMemorySize" value="40960"></property>
+	</bean>
+	
+</beans>   

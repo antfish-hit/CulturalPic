@@ -1,0 +1,23 @@
+#header{
+    margin-left: 4%;
+}
+
+#title{
+    font-size: 27px;
+    letter-spacing: 9px;
+}
+
+#reg_log{
+    margin-right: 5%;
+}
+
+.copyright{
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+hr{
+    width: 90%;
+    margin-left: 0%;
+    border-color: #eee;
+}

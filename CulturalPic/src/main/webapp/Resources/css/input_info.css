@@ -1,0 +1,49 @@
+ul{
+    margin-left: -5%;
+}
+
+li{
+    width: 13%;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a{
+    width: 80%;
+}
+
+.input-group{
+    margin-bottom: 7px;
+}
+
+select{
+    padding: 0 0 0 35%;
+}
+
+.option{
+    display: none;
+}
+
+h2{
+    text-align: center;
+}
+
+h4{
+    display: inline-block;
+}
+
+.table-info{
+    text-align: center;
+}
+
+.table-nameType,.table-addressCategory,.table-school,
+.table-diploma,.table-ship,.table-occupation,
+.table-polity,.table-activity,.table-writing{
+    display: none;
+}
